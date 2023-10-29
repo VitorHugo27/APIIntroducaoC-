@@ -35,7 +35,7 @@ namespace IntroducaoAPI.Controllers
         public async Task<ActionResult<UsuarioModel>> Cadastrar([FromBody] UsuarioModel usuarioModel)
         {
             UsuarioModel usuario = await _usuarioRepository.Adicionar(usuarioModel);
-            return Ok(usuarioModel);
+            return Ok(usuario);
         }
 
         [HttpPut("{id}")]
@@ -43,7 +43,7 @@ namespace IntroducaoAPI.Controllers
         {
             usuarioModel.Id = id;
             UsuarioModel usuario = await _usuarioRepository.Atualizar(usuarioModel, id);
-            return Ok(usuarioModel);
+            return Ok(usuario);
         }
 
         [HttpDelete("{id}")]
